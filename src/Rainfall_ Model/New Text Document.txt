@@ -1,0 +1,9 @@
+# Ignore large data and model files
+*.npz
+*.keras
+*.h5
+*.csv
+*.nc
+
+# Ignore Jupyter checkpoint folders
+.ipynb_checkpoints/

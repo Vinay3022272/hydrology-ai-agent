@@ -1,0 +1,31 @@
+# ══════════════════════════════════════════════════════════════
+#  requirements.txt — PREDICTION NOTEBOOK (prediction.ipynb)
+#  Platform : Google Colab / Kaggle (Python 3.10+)
+#  Run with : pip install -r requirements.txt
+# ══════════════════════════════════════════════════════════════
+
+# Core numerics
+numpy>=1.26.0
+
+# Deep Learning — TensorFlow + Keras (used for model load & inference)
+tensorflow>=2.16.0
+# keras is bundled inside tensorflow>=2.16, no separate install needed
+
+# Data manipulation & date handling
+pandas>=2.2.0
+
+# Preprocessing (loading saved .pkl scalers)
+scikit-learn>=1.4.0
+
+# Visualization
+matplotlib>=3.8.0
+
+# Raw data loading (ERA5 .npz dataset)
+# h5py is needed internally by numpy .npz loader for large files
+h5py>=3.10.0
+
+# Saving / loading scalers
+# pickle — built into Python stdlib, no install needed
+
+# Optional (pre-installed on Colab/Kaggle, listed for local use)
+scipy>=1.12.0

@@ -1,0 +1,80 @@
+# LLM Models
+models:
+  decision_llm: "gemini-3-flash-preview" # Primary Ollama model
+  fallback_llm: "gemini-3-flash-preview" # Keep fallback aligned with primary
+  vision_llm: "llava:13b"
+  embedding_model: "bge-m3"
+
+# Groq (primary fast LLM — cloud API, sub-2s responses)
+groq:
+  model: "llama-3.3-70b-versatile"
+  timeout: 30 # seconds
+
+#  Ollama Connection (used as fallback)
+ollama:
+  host: "http://localhost:11434"
+  timeout: 30 # seconds (reduced from 120)
+
+#  Database
+database:
+  sqlite_path: "data/memory.db"
+  max_history: 50 # stored history (DB)
+  recent_message_window: 3 # only these recent turns are sent to main LLM
+  summarize_threshold: 4 # summarize after this many new messages
+
+#  Qdrant (Primary Vector Store)
+qdrant:
+  url: "http://localhost:6333"
+  collection_name: "hydrology_knowledge"
+  top_k: 5
+  score_threshold: 0.25
+
+#  Hydrological Thresholds
+thresholds:
+  rainfall:
+    low: 10 # mm
+    moderate: 30 # mm
+    high: 50 # mm
+    extreme: 100 # mm
+  streamflow:
+    normal: 50 # m³/s
+    warning: 100 # m³/s
+    danger: 200 # m³/s
+    critical: 350 # m³/s
+  flood_susceptibility:
+    low: 0.3
+    moderate: 0.5
+    high: 0.7
+    very_high: 0.9
+
+#  Basin Info
+basin:
+  name: "Your Basin Name"
+  area_km2: 0
+  num_zones: 0
+
+#  Document Paths (for RAG ingestion)
+docs:
+  source_directory: "docs/"
+  supported_extensions:
+    - ".md"
+    - ".txt"
+    - ".pdf"
+
+#  Streaming
+streaming:
+  enabled: true
+  status_messages:
+    analyzing: " Analyzing your query..."
+    retrieving: " Retrieving relevant documents..."
+    calling_model: " Calling prediction model..."
+    generating: " Generating response..."
+    complete: " Done!"
+
+#  LangSmith Tracing
+langsmith:
+  enabled: false
+  project: "hydro-ai"
+  endpoint: "https://api.smith.langchain.com"
+  api_key: ""
+  agent_name: "hydro-ai-agent"

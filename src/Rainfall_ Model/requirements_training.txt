@@ -1,0 +1,35 @@
+# ══════════════════════════════════════════════════════════════
+#  requirements.txt — TRAINING NOTEBOOK (notebookdeb4e4ce54)
+#  Platform : Kaggle (GPU T4 / Python 3.12)
+#  Run with : pip install -r requirements.txt
+# ══════════════════════════════════════════════════════════════
+
+# Core numerics
+numpy>=1.26.0
+
+# NetCDF / climate data loading
+xarray>=2024.1.0
+netCDF4>=1.6.5
+h5py>=3.10.0
+
+# Deep Learning — PyTorch (used for ConvLSTM / U-Net training)
+# On Kaggle, PyTorch with CUDA is pre-installed. For local install:
+torch>=2.2.0
+# torchvision>=0.17.0   # uncomment if needed
+
+# Data manipulation
+pandas>=2.2.0
+
+# Preprocessing (scalers saved as .pkl)
+scikit-learn>=1.4.0
+
+# Visualization
+matplotlib>=3.8.0
+cartopy>=0.22.0
+
+# Saving outputs
+# pickle — built into Python stdlib, no install needed
+# os     — built into Python stdlib, no install needed
+
+# Optional (Kaggle pre-installs these, but listed for local reproducibility)
+scipy>=1.12.0

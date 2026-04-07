@@ -1,0 +1,29 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    container_name: langgraph_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: langgraph
+      POSTGRES_PASSWORD: langgraph
+      POSTGRES_DB: langgraph_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - langgraph_pgdata:/var/lib/postgresql/data
+
+  qdrant:
+    image: qdrant/qdrant
+    container_name: hydrology-qdrant
+    restart: always
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage   
+
+volumes:
+  langgraph_pgdata:
+  qdrant_data:   
