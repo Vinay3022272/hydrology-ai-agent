@@ -190,7 +190,7 @@ src/hydro_ai/vectorStore/
 *.qmd
 
 # Local docs
-readme.md
+# readme.md
 
 # Trained models and serialized ML artifacts
 *.pkl
